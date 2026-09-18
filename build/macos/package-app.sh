@@ -104,6 +104,7 @@ cat > "$bundle/Contents/Info.plist" <<EOF
     <key>CFBundleVersion</key><string>$numeric_version</string>
     <key>CFBundleGetInfoString</key><string>VRC-Avatar-Explorer $version</string>
     <key>CFBundleIconFile</key><string>SoftwareIcon.icns</string>
+    <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>NSHighResolutionCapable</key><true/>
 </dict>
 </plist>
