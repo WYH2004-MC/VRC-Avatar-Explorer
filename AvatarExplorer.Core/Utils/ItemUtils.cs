@@ -58,7 +58,12 @@ public static partial class ItemUtils
         if (string.IsNullOrEmpty(rootDirectory)) return itemPath;
 
         if (itemPath.StartsWith(RootFolderPrefix))
-            return Path.Join(rootDirectory, itemPath.AsSpan(RootFolderPrefix.Length));
+        {
+            var relativePath = itemPath[RootFolderPrefix.Length..]
+                .Replace('\\', Path.DirectorySeparatorChar)
+                .Replace('/', Path.DirectorySeparatorChar);
+            return Path.Join(rootDirectory, relativePath);
+        }
 
         return itemPath;
     }
